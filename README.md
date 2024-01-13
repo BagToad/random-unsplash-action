@@ -48,14 +48,21 @@ jobs:
 ```markdown
 ### 👋 Welcome to my GitHub Profile!
 
-<img width="720" src="{{ unsplash-url }}" alt="{{ unsplash-alt-description }}">
+----
 
-<em>{{ unsplash-alt-description }}</em>
+<div align="center">
+  <img width="720" src="{{ unsplash-url }}" alt="{{ unsplash-alt-description }}">
+  
+  <em>{{ unsplash-alt-description }}</em>
+  
+  <em>{{ unsplash-description }}</em>
+  
+  Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }})
+</div>
 
-<em>{{ unsplash-description }}</em>
+----
 
-Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }})
-
+☝️ A random image is retrieved and posted to my profile daily via the [BagToad/random-unsplash-action](https://github.com/BagToad/random-unsplash-action) action!
 ```
 
 # Action Inputs
