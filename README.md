@@ -57,7 +57,7 @@ jobs:
   
   <em>{{ unsplash-description }}</em>
   
-  Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }})
+  Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }}) on [unsplash.com](https://unsplash.com/)
 </div>
 
 ----
