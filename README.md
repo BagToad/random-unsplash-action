@@ -33,7 +33,7 @@ jobs:
       
       # Use the unsplash 
       - name:  Update README.md with random Unsplash image
-        uses: bagtoad/random-unsplash-action
+        uses: bagtoad/random-unsplash-action@v1
         with:
             unsplash_token: ${{ secrets.UNSPLASH_TOKEN }} # Required
             github_token: ${{ secrets.GITHUB_TOKEN }} # Required
