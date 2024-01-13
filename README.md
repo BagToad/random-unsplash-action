@@ -4,6 +4,9 @@ Get a random photo from Unsplash and display it in your README!
 
 # Example Usage
 
+This action requires an Unsplash API access key. [Create a developer account](https://unsplash.com/documentation#creating-a-developer-account) to get an access key. 
+
+Register the access key as an [Actions secret ](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository), and pass it to the action with the `unsplash_token` input.
 
 ## Workflow
 ```yaml
@@ -13,7 +16,7 @@ name: Update README.md with random unsplash image
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  # Run the workflow once a day at 6.
+  # Run the workflow once a day at 6. PLEASE USE THIS ACTION RESPONSIBLY AND DO NOT ABUSE THE UNSPLASH API
   schedule:
     - cron: '0 6 * * *'
 
@@ -66,7 +69,6 @@ Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }})
 | query           | query to search for                                 | false    | -             |
 | content_filter  | content filter (Valid values are low and high)      | false    | 'high'        |
 
-
 More information can be found in [the Unsplash API docs](https://unsplash.com/documentation#get-a-random-photo)
 
 # Template Placeholders
@@ -78,3 +80,8 @@ More information can be found in [the Unsplash API docs](https://unsplash.com/do
 | `{{ unsplash-description }}` | The description of the image from Unsplash      |
 | `{{ unsplash-name }}`     | The name of the image author from Unsplash        |
 | `{{ unsplash-portfolio-url }}` | The portfolio URL of the image author from Unsplash |
+
+
+# Legal
+
+This action and the code contained is for educational purposes only.
