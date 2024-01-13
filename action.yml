@@ -1,0 +1,26 @@
+name: 'Get a random unsplash photo'
+description: 'Get a random unsplash photo'
+inputs:
+  unsplash_token:  # token to auth to unsplash
+    description: 'token to auth to unsplash'
+    required: true
+  github_token: # token to auth to github
+    description: 'token to auth to github'
+    required: true
+  template: # template to use
+    description: 'template to use'
+    required: true
+  orientation: # orientation of image (Valid values: landscape, portrait, squarish)
+    description: 'orientation of image'
+    required: false
+    default: 'landscape'
+  query: # query to search for
+    description: 'query to search for'
+    required: false
+  content_filter: # content filter. (Default: high. Valid values are low and high)
+    description: 'content filter'
+    required: false
+    default: 'high'
+runs:
+  using: 'node20'
+  main: 'index.js'
