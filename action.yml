@@ -1,7 +1,8 @@
 name: 'Get a random unsplash photo'
 description: 'Get a random unsplash photo'
-icon: image
-color: purple
+branding:
+  icon: image
+  color: purple
 inputs:
   unsplash_token:  # token to auth to unsplash
     description: 'token to auth to unsplash'
