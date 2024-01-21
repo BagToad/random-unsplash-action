@@ -75,6 +75,8 @@ jobs:
 | orientation     | orientation of image (Valid values: landscape, portrait, squarish) | false    | 'landscape'   |
 | query           | query to search for                                 | false    | -             |
 | content_filter  | content filter (Valid values are low and high)      | false    | 'high'        |
+| collections     | collections to search within                        | false    | -             |
+| topics          | topics to search for                                | false    | -             |
 
 More information can be found in [the Unsplash API docs](https://unsplash.com/documentation#get-a-random-photo)
 
