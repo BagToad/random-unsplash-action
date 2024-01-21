@@ -89,6 +89,15 @@ More information can be found in [the Unsplash API docs](https://unsplash.com/do
 | `{{ unsplash-description }}` | The description of the image from Unsplash      |
 | `{{ unsplash-name }}`     | The name of the image author from Unsplash        |
 | `{{ unsplash-portfolio-url }}` | The portfolio URL of the image author from Unsplash |
+| `{{ model }}` | The camera model used to take the photo |
+| `{{ exposure-time }}` | The exposure time of the photo |
+| `{{ aperture }}` | The aperture of the photo |
+| `{{ focal-length }}` | The focal length of the photo |
+| `{{ iso }}` | The ISO of the photo |
+| `{{ location }}` | The location where the photo was taken |
+| `{{ country }}` | The country where the photo was taken |
+| `{{ latitude }}` | The latitude of the location where the photo was taken |
+| `{{ longitude }}` | The longitude of the location where the photo was taken |
 
 
 # Legal
