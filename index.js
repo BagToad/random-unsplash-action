@@ -46,9 +46,29 @@ unsplash.photos.getRandom({
         const URL = data.response.urls.regular;
         const DESC = data.response.description;
         const ALTDESC = data.response.alt_description;
+
         // Social data
         const NAME = data.response.user.name;
-        const PORTFOLIOURL = data.response.user.portfolio_url;
+        const INSTAGRAM = data.response.user.social.instagram_username;
+        const PORTFOLIOURL = data.response.user.social.portfolio_url;
+        const TWITTER = data.response.user.social.twitter_username;
+        const PAYPAL = data.response.user.social.paypal_email;
+        const SOCIALS = [INSTAGRAM, PORTFOLIOURL, TWITTER, PAYPAL]
+
+        // Construct a string that looks like this: "instagram / portfolio / twitter"
+        let SOCIALSSTRING = "";
+
+        for (let i = 0; i < SOCIALS.length; i++) {
+            if (SOCIALS[i] == null) {
+                continue;
+            }
+
+            if (i < SOCIALS.length - 1) {
+                SOCIALSSTRING += SOCIALS[i] + " / ";
+            } else {
+                SOCIALSSTRING += SOCIALS[i];
+            }
+        }
 
         // Camera/EXIF data
         const MODEL = data.response.exif.model;
@@ -77,8 +97,9 @@ unsplash.photos.getRandom({
             .replace(/{{ location }}/g, LOCATION)
             .replace(/{{ country }}/g, COUNTRY)
             .replace(/{{ latitude }}/g, LATITUDE)
-            .replace(/{{ longitude }}/g, LONGITUDE);
-            
+            .replace(/{{ longitude }}/g, LONGITUDE)
+            .replace(/{{ socials }}/g, SOCIALSSTRING);
+
         // Write processed template to README.md
         try {
             fs.writeFileSync('README.md', result);
