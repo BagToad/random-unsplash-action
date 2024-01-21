@@ -49,11 +49,12 @@ unsplash.photos.getRandom({
 
         // Social data
         const NAME = data.response.user.name;
+        const PORTFOLIOURL = data.response.user.social.portfolio_url;
         const INSTAGRAM = data.response.user.social.instagram_username 
             ? `[instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
             : '';
 
-        const PORTFOLIOURL = data.response.user.social.portfolio_url 
+        const PORTFOLIO = data.response.user.social.portfolio_url 
             ? `[portfolio](${data.response.user.social.portfolio_url})` 
             : '';
 
@@ -64,7 +65,7 @@ unsplash.photos.getRandom({
         const PAYPAL = data.response.user.social.paypal_email 
             ? `[paypal](mailto:${data.response.user.social.paypal_email})` 
             : '';
-        const SOCIALS = [INSTAGRAM, PORTFOLIOURL, TWITTER, PAYPAL].filter(Boolean);
+        const SOCIALS = [INSTAGRAM, PORTFOLIO, TWITTER, PAYPAL].filter(Boolean);
 
         // Construct a string that looks like this: "instagram / portfolio / twitter"
         let SOCIALSSTRING = SOCIALS.reduce((finalStr, ele, index, arr)=> {
@@ -93,7 +94,6 @@ unsplash.photos.getRandom({
             .replace(/{{ unsplash-description }}/g, DESC)
             .replace(/{{ unsplash-alt-description }}/g, ALTDESC)
             .replace(/{{ unsplash-name }}/g, NAME)
-            .replace(/{{ unsplash-portfolio-url }}/g, PORTFOLIOURL)
             .replace(/{{ model }}/g, MODEL)
             .replace(/{{ exposure-time }}/g, EXPOSURETIME)
             .replace(/{{ aperture }}/g, APERTURE)
@@ -103,6 +103,7 @@ unsplash.photos.getRandom({
             .replace(/{{ country }}/g, COUNTRY)
             .replace(/{{ latitude }}/g, LATITUDE)
             .replace(/{{ longitude }}/g, LONGITUDE)
+            .replace(/{{ unsplash-portfolio-url }}/g, PORTFOLIOURL)
             .replace(/{{ socials }}/g, SOCIALSSTRING);
 
         // Write processed template to README.md
