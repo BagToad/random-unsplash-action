@@ -15,6 +15,8 @@ const TEMPLATE = core.getInput('template');
 const ORIENTATION = core.getInput('orientation');
 const QUERY = core.getInput('query');
 const CONTENTFILTER = core.getInput('content_filter');
+const COLLECTIONS = core.getInput('collections');
+const TOPICS = core.getInput('topics');
 
 // Initialize Unsplash API
 const unsplash = createApi({
@@ -31,6 +33,8 @@ try {
 
 // Get random image from Unsplash
 unsplash.photos.getRandom({
+    collections: COLLECTIONS,
+    topics: TOPICS,
     content_filter: CONTENTFILTER,
     orientation: ORIENTATION,
     query: QUERY,

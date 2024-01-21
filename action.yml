@@ -24,6 +24,12 @@ inputs:
     description: 'content filter'
     required: false
     default: 'high'
+  collections: # collection IDs to pull a random image from (comma separated).
+    description: 'Public collection IDs to filter selection. If multiple, comma-separated'
+    required: false
+  topics: # topic IDs to pull a random image from (comma separated).
+    description: 'Public topic IDs to filter selection. If multiple, comma-separated'
+    required: false
 runs:
   using: 'node20'
   main: 'index.js'
