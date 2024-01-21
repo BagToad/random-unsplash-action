@@ -98,6 +98,7 @@ More information can be found in [the Unsplash API docs](https://unsplash.com/do
 | `{{ country }}` | The country where the photo was taken |
 | `{{ latitude }}` | The latitude of the location where the photo was taken |
 | `{{ longitude }}` | The longitude of the location where the photo was taken |
+| `{{ socials }}` | A markdown linked string of the creator's socials: "instagram / portfolio / twitter"
 
 
 # Legal
