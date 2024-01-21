@@ -56,7 +56,7 @@ unsplash.photos.getRandom({
         const SOCIALS = [INSTAGRAM, PORTFOLIOURL, TWITTER, PAYPAL]
 
         // Construct a string that looks like this: "instagram / portfolio / twitter"
-        let SOCIALSSTRING = SOCIALS.reduce((ele, finalStr, index, arr)=> {
+        let SOCIALSSTRING = SOCIALS.reduce((finalStr, ele, index, arr)=> {
             if (ele == null) {
                 return finalStr;
             }
