@@ -49,10 +49,21 @@ unsplash.photos.getRandom({
 
         // Social data
         const NAME = data.response.user.name;
-        const INSTAGRAM = `[instagram](https://instagram.com/${data.response.user.social.instagram_username}))`;
-        const PORTFOLIOURL = `[portfolio](${data.response.user.social.portfolio_url})`;
-        const TWITTER = `[twitter](https://twitter.com/${data.response.user.social.twitter_username}))`;
-        const PAYPAL = `[paypal](mailto:${data.response.user.social.paypal_email}`;
+        const INSTAGRAM = data.response.user.social.instagram_username 
+            ? `[instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
+            : '';
+
+        const PORTFOLIOURL = data.response.user.social.portfolio_url 
+            ? `[portfolio](${data.response.user.social.portfolio_url})` 
+            : '';
+
+        const TWITTER = data.response.user.social.twitter_username 
+            ? `[twitter](https://twitter.com/${data.response.user.social.twitter_username})` 
+            : '';
+
+        const PAYPAL = data.response.user.social.paypal_email 
+            ? `[paypal](mailto:${data.response.user.social.paypal_email})` 
+            : '';
         const SOCIALS = [INSTAGRAM, PORTFOLIOURL, TWITTER, PAYPAL].filter(Boolean);
 
         // Construct a string that looks like this: "instagram / portfolio / twitter"
