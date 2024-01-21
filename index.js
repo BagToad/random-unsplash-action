@@ -40,6 +40,9 @@ unsplash.photos.getRandom({
     query: QUERY,
 })
     .then(data => {
+        core.debug(data)
+
+        // Get data from response
         const URL = data.response.urls.regular;
         const DESC = data.response.description;
         const ALTDESC = data.response.alt_description;
