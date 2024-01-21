@@ -62,9 +62,9 @@ unsplash.photos.getRandom({
             }
 
             if (index < arr.length - 1) {
-                finalStr += ele + " / ";
+                return finalStr += ele + " / ";
             } else {
-                finalStr += ele;
+                return finalStr += ele;
             }
         }, "");
 
