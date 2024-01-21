@@ -53,18 +53,14 @@ unsplash.photos.getRandom({
         const PORTFOLIOURL = data.response.user.social.portfolio_url;
         const TWITTER = data.response.user.social.twitter_username;
         const PAYPAL = data.response.user.social.paypal_email;
-        const SOCIALS = [INSTAGRAM, PORTFOLIOURL, TWITTER, PAYPAL]
+        const SOCIALS = [INSTAGRAM, PORTFOLIOURL, TWITTER, PAYPAL].filter(Boolean);
 
         // Construct a string that looks like this: "instagram / portfolio / twitter"
         let SOCIALSSTRING = SOCIALS.reduce((finalStr, ele, index, arr)=> {
-            if (ele == null) {
-                return finalStr;
-            }
-
             if (index < arr.length - 1) {
-                return finalStr += ele + " / ";
+                return finalStr + ele + " / ";
             } else {
-                return finalStr += ele;
+                return finalStr + ele;
             }
         }, "");
 
