@@ -49,7 +49,7 @@ unsplash.photos.getRandom({
         const ALTDESC = data.response.alt_description || '';
 
         // Social data
-        const NAME = data.response.user.name;
+        const NAME = data.response.user.name || 'Unknown';
         const PORTFOLIOURL = data.response.user.social.portfolio_url;
         const INSTAGRAM = data.response.user.social.instagram_username 
             ? `[Instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
