@@ -88,8 +88,8 @@ unsplash.photos.getRandom({
         const COUNTRY = data.response.location.country;
         const LATITUDE = data.response.location.position.latitude;
         const LONGITUDE = data.response.location.position.longitude;
-        const GOOGLEMAPS = `[Google Maps](https://www.google.com/maps/search/?api=1&query=${LATITUDE},${LONGITUDE})`
-        const GOOGLEMAPSSTREETVIEW = `[Google Maps street view](https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LATITUDE},${LONGITUDE})`
+        const GOOGLEMAPS = LATITUDE && LONGITUDE ? `[Google Maps](https://www.google.com/maps/search/?api=1&query=${LATITUDE},${LONGITUDE})` : '';
+        const GOOGLEMAPSSTREETVIEW = LATITUDE && LONGITUDE ? `[Google Maps street view](https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LATITUDE},${LONGITUDE})` : '';
 
         // Replace variables in template
         const result = templateFile.replace(/{{ unsplash-url }}/g, URL)
