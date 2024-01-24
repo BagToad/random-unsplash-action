@@ -51,7 +51,7 @@ unsplash.photos.getRandom({
         const NAME = data.response.user.name;
         const PORTFOLIOURL = data.response.user.social.portfolio_url;
         const INSTAGRAM = data.response.user.social.instagram_username 
-            ? `[instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
+            ? `[Instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
             : '';
 
         const PORTFOLIO = data.response.user.social.portfolio_url 
@@ -59,11 +59,11 @@ unsplash.photos.getRandom({
             : '';
 
         const TWITTER = data.response.user.social.twitter_username 
-            ? `[twitter](https://twitter.com/${data.response.user.social.twitter_username})` 
+            ? `[Twitter](https://twitter.com/${data.response.user.social.twitter_username})` 
             : '';
 
         const PAYPAL = data.response.user.social.paypal_email 
-            ? `[paypal](mailto:${data.response.user.social.paypal_email})` 
+            ? `[Paypal](mailto:${data.response.user.social.paypal_email})` 
             : '';
         const SOCIALS = [INSTAGRAM, PORTFOLIO, TWITTER, PAYPAL].filter(Boolean);
 
@@ -88,6 +88,8 @@ unsplash.photos.getRandom({
         const COUNTRY = data.response.location.country;
         const LATITUDE = data.response.location.position.latitude;
         const LONGITUDE = data.response.location.position.longitude;
+        const GOOGLEMAPS = LATITUDE && LONGITUDE ? `[Google Maps](https://www.google.com/maps/search/?api=1&query=${LATITUDE},${LONGITUDE})` : '';
+        const GOOGLEMAPSSTREETVIEW = LATITUDE && LONGITUDE ? `[Google Maps street view](https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LATITUDE},${LONGITUDE})` : '';
 
         // Replace variables in template
         const result = templateFile.replace(/{{ unsplash-url }}/g, URL)
@@ -104,7 +106,9 @@ unsplash.photos.getRandom({
             .replace(/{{ latitude }}/g, LATITUDE)
             .replace(/{{ longitude }}/g, LONGITUDE)
             .replace(/{{ unsplash-portfolio-url }}/g, PORTFOLIOURL)
-            .replace(/{{ socials }}/g, SOCIALSSTRING);
+            .replace(/{{ socials }}/g, SOCIALSSTRING)
+            .replace(/{{ google-maps }}/g, GOOGLEMAPS)
+            .replace(/{{ google-maps-street-view }}/g, GOOGLEMAPSSTREETVIEW);
 
         // Write processed template to README.md
         try {
