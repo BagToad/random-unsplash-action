@@ -44,11 +44,12 @@ unsplash.photos.getRandom({
 
         // Get data from response
         const URL = data.response.urls.regular;
-        const DESC = data.response.description;
-        const ALTDESC = data.response.alt_description;
+        const HTMLURL = data.response.links.html;
+        const DESC = data.response.description || '';
+        const ALTDESC = data.response.alt_description || '';
 
         // Social data
-        const NAME = data.response.user.name;
+        const NAME = data.response.user.name || 'Unknown';
         const PORTFOLIOURL = data.response.user.social.portfolio_url;
         const INSTAGRAM = data.response.user.social.instagram_username 
             ? `[Instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
@@ -84,7 +85,7 @@ unsplash.photos.getRandom({
         const ISO = data.response.exif.iso;
 
         // Location data
-        const LOCATION = data.response.location.name;
+        const LOCATION = data.response.location.name || 'Unknown';
         const COUNTRY = data.response.location.country;
         const LATITUDE = data.response.location.position.latitude;
         const LONGITUDE = data.response.location.position.longitude;
@@ -92,7 +93,9 @@ unsplash.photos.getRandom({
         const GOOGLEMAPSSTREETVIEW = LATITUDE && LONGITUDE ? `[Google Maps street view](https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LATITUDE},${LONGITUDE})` : '';
 
         // Replace variables in template
-        const result = templateFile.replace(/{{ unsplash-url }}/g, URL)
+        const result = templateFile
+            .replace(/{{ unsplash-raw-url }}/g, URL)
+            .replace(/{{ unsplash-page-url }}/g, HTMLURL)
             .replace(/{{ unsplash-description }}/g, DESC)
             .replace(/{{ unsplash-alt-description }}/g, ALTDESC)
             .replace(/{{ unsplash-name }}/g, NAME)

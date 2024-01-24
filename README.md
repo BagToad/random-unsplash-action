@@ -49,20 +49,43 @@ jobs:
 ### 👋 Welcome to my GitHub Profile!
 
 ----
-
 <div align="center">
-  <img width="720" src="{{ unsplash-url }}" alt="{{ unsplash-alt-description }}">
+
+## Photo of the day
+  
+  <a href="{{ unsplash-page-url }}"><img width="720" src="{{ unsplash-raw-url }}" alt="{{ unsplash-alt-description }}"></a>
   
   <em>{{ unsplash-alt-description }}</em>
   
   <em>{{ unsplash-description }}</em>
+
+  Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }}) on [unsplash.com](https://unsplash.com/) • {{ socials }}
   
-  Photo by [{{ unsplash-name }}]({{ unsplash-portfolio-url }}) on [unsplash.com](https://unsplash.com/)
+  Taken at {{ location }} • {{ google-maps }}
+  
+  ---
+  
+<details>
+<summary>Photography Details</summary>
+  
+| Parameter     | Value |
+| ------------- | ----- |
+| Camera Model  | {{ model }} |
+| Exposure Time | {{ exposure-time }} |
+| Aperture      | {{ aperture }} |
+| Focal Length  | {{ focal-length }} |
+| ISO           | {{ iso }} |
+| Location      | {{ location }} ({{ country }}) |
+| Coordinates   | Latitude {{ latitude }}, Longitude {{ longitude }} |
+
+</details>
+
 </div>
 
 ----
 
 ☝️ A random image is retrieved and posted to my profile daily via the [BagToad/random-unsplash-action](https://github.com/BagToad/random-unsplash-action) action!
+
 ```
 
 # Action Inputs
@@ -84,7 +107,8 @@ More information can be found in [the Unsplash API docs](https://unsplash.com/do
 
 | Placeholder             | Description                                       |
 | ----------------------- | ------------------------------------------------- |
-| `{{ unsplash-url }}`      | The URL of the image from Unsplash                |
+| `{{ unsplash-raw-url }}`      | The raw file URL of the image from Unsplash                |
+| `{{ unsplash-page-url }}`     | A link to the photo on unsplash.com |
 | `{{ unsplash-alt-description }}` | The alt description of the image from Unsplash |
 | `{{ unsplash-description }}` | The description of the image from Unsplash      |
 | `{{ unsplash-name }}`     | The name of the image author from Unsplash        |
