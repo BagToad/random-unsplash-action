@@ -44,8 +44,8 @@ unsplash.photos.getRandom({
 
         // Get data from response
         const URL = data.response.urls.regular;
-        const DESC = data.response.description;
-        const ALTDESC = data.response.alt_description;
+        const DESC = data.response.description || '';
+        const ALTDESC = data.response.alt_description || '';
 
         // Social data
         const NAME = data.response.user.name;
