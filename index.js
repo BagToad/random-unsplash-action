@@ -84,7 +84,7 @@ unsplash.photos.getRandom({
         const ISO = data.response.exif.iso;
 
         // Location data
-        const LOCATION = data.response.location.name;
+        const LOCATION = data.response.location.name || 'Unknown';
         const COUNTRY = data.response.location.country;
         const LATITUDE = data.response.location.position.latitude;
         const LONGITUDE = data.response.location.position.longitude;
