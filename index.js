@@ -51,7 +51,7 @@ unsplash.photos.getRandom({
         const NAME = data.response.user.name;
         const PORTFOLIOURL = data.response.user.social.portfolio_url;
         const INSTAGRAM = data.response.user.social.instagram_username 
-            ? `[instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
+            ? `[Instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
             : '';
 
         const PORTFOLIO = data.response.user.social.portfolio_url 
@@ -59,11 +59,11 @@ unsplash.photos.getRandom({
             : '';
 
         const TWITTER = data.response.user.social.twitter_username 
-            ? `[twitter](https://twitter.com/${data.response.user.social.twitter_username})` 
+            ? `[Twitter](https://twitter.com/${data.response.user.social.twitter_username})` 
             : '';
 
         const PAYPAL = data.response.user.social.paypal_email 
-            ? `[paypal](mailto:${data.response.user.social.paypal_email})` 
+            ? `[Paypal](mailto:${data.response.user.social.paypal_email})` 
             : '';
         const SOCIALS = [INSTAGRAM, PORTFOLIO, TWITTER, PAYPAL].filter(Boolean);
 
