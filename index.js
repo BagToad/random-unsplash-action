@@ -88,6 +88,8 @@ unsplash.photos.getRandom({
         const COUNTRY = data.response.location.country;
         const LATITUDE = data.response.location.position.latitude;
         const LONGITUDE = data.response.location.position.longitude;
+        const GOOGLEMAPS = `[Google Maps](https://www.google.com/maps/search/?api=1&query=${LATITUDE},${LONGITUDE})`
+        const GOOGLEMAPSSTREETVIEW = `[Google Maps street view](https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LATITUDE},${LONGITUDE})`
 
         // Replace variables in template
         const result = templateFile.replace(/{{ unsplash-url }}/g, URL)
@@ -104,7 +106,9 @@ unsplash.photos.getRandom({
             .replace(/{{ latitude }}/g, LATITUDE)
             .replace(/{{ longitude }}/g, LONGITUDE)
             .replace(/{{ unsplash-portfolio-url }}/g, PORTFOLIOURL)
-            .replace(/{{ socials }}/g, SOCIALSSTRING);
+            .replace(/{{ socials }}/g, SOCIALSSTRING)
+            .replace(/{{ google-maps }}/g, GOOGLEMAPS)
+            .replace(/{{ google-maps-street-view }}/g, GOOGLEMAPSSTREETVIEW);
 
         // Write processed template to README.md
         try {
