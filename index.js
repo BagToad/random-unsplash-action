@@ -95,7 +95,8 @@ unsplash.photos.getRandom({
         // Construct a geoJSON string from the location data.
         // This is used to display the location on a map in the README.md
         const MAPZOOM = 0.3;
-        const GEOJSON = `{
+        const GEOJSON = `\`\`\`geojson
+        {
             "type": "FeatureCollection",
             "features": [
                 {
@@ -140,7 +141,8 @@ unsplash.photos.getRandom({
                     }
                 }
             ]
-        }`;
+        }
+        \`\`\``;
 
         // Replace variables in template
         const result = templateFile
