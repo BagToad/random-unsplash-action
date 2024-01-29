@@ -145,7 +145,7 @@ unsplash.photos.getRandom({
                 }
             ]
         }
-        \`\`\``;
+\`\`\``;
         }
 
         // Replace variables in template
