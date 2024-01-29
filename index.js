@@ -120,24 +120,24 @@ unsplash.photos.getRandom({
                     "geometry": {
                         "coordinates": [
                             [
-                                ${LATITUDE} + ${MAPZOOM},
-                                ${LONGITUDE} + ${MAPZOOM}
+                                ${LATITUDE + MAPZOOM},
+                                ${LONGITUDE + MAPZOOM}
                             ],
                             [
-                                ${LATITUDE} - ${MAPZOOM},
-                                ${LONGITUDE} + ${MAPZOOM}
+                                ${LATITUDE - MAPZOOM},
+                                ${LONGITUDE + MAPZOOM}
                             ],
                             [
-                                ${LATITUDE} - ${MAPZOOM},
-                                ${LONGITUDE} - ${MAPZOOM}
+                                ${LATITUDE - MAPZOOM},
+                                ${LONGITUDE - MAPZOOM}
                             ],
                             [
-                                ${LATITUDE} + ${MAPZOOM},
-                                ${LONGITUDE} - ${MAPZOOM}
+                                ${LATITUDE + MAPZOOM},
+                                ${LONGITUDE - MAPZOOM}
                             ],
                             [
-                                ${LATITUDE} + ${MAPZOOM},
-                                ${LONGITUDE} + ${MAPZOOM}
+                                ${LATITUDE + MAPZOOM},
+                                ${LONGITUDE + MAPZOOM}
                             ]
                         ],
                         "type": "LineString"
