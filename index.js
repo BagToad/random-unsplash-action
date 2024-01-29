@@ -51,25 +51,25 @@ unsplash.photos.getRandom({
         // Social data
         const NAME = data.response.user.name || 'Unknown';
         const PORTFOLIOURL = data.response.user.social.portfolio_url;
-        const INSTAGRAM = data.response.user.social.instagram_username 
-            ? `[Instagram](https://instagram.com/${data.response.user.social.instagram_username})` 
+        const INSTAGRAM = data.response.user.social.instagram_username
+            ? `[Instagram](https://instagram.com/${data.response.user.social.instagram_username})`
             : '';
 
-        const PORTFOLIO = data.response.user.social.portfolio_url 
-            ? `[portfolio](${data.response.user.social.portfolio_url})` 
+        const PORTFOLIO = data.response.user.social.portfolio_url
+            ? `[portfolio](${data.response.user.social.portfolio_url})`
             : '';
 
-        const TWITTER = data.response.user.social.twitter_username 
-            ? `[Twitter](https://twitter.com/${data.response.user.social.twitter_username})` 
+        const TWITTER = data.response.user.social.twitter_username
+            ? `[Twitter](https://twitter.com/${data.response.user.social.twitter_username})`
             : '';
 
-        const PAYPAL = data.response.user.social.paypal_email 
-            ? `[Paypal](mailto:${data.response.user.social.paypal_email})` 
+        const PAYPAL = data.response.user.social.paypal_email
+            ? `[Paypal](mailto:${data.response.user.social.paypal_email})`
             : '';
         const SOCIALS = [INSTAGRAM, PORTFOLIO, TWITTER, PAYPAL].filter(Boolean);
 
         // Construct a string that looks like this: "instagram / portfolio / twitter"
-        let SOCIALSSTRING = SOCIALS.reduce((finalStr, ele, index, arr)=> {
+        let SOCIALSSTRING = SOCIALS.reduce((finalStr, ele, index, arr) => {
             if (index < arr.length - 1) {
                 return finalStr + ele + " / ";
             } else {
@@ -92,6 +92,56 @@ unsplash.photos.getRandom({
         const GOOGLEMAPS = LATITUDE && LONGITUDE ? `[Google Maps](https://www.google.com/maps/search/?api=1&query=${LATITUDE},${LONGITUDE})` : '';
         const GOOGLEMAPSSTREETVIEW = LATITUDE && LONGITUDE ? `[Google Maps street view](https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LATITUDE},${LONGITUDE})` : '';
 
+        // Construct a geoJSON string from the location data.
+        // This is used to display the location on a map in the README.md
+        const MAPZOOM = 0.3;
+        const GEOJSON = `{
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {},
+                    "geometry": {
+                        "coordinates": [
+                            ${LATITUDE},
+                            ${LONGITUDE}
+                        ],
+                        "type": "Point"
+                    },
+                    "id": 1
+                },
+                {
+                    "type": "Feature",
+                    "properties": {},
+                    "geometry": {
+                        "coordinates": [
+                            [
+                                ${LATITUDE} + ${MAPZOOM},
+                                ${LONGITUDE} + ${MAPZOOM}
+                            ],
+                            [
+                                ${LATITUDE} - ${MAPZOOM},
+                                ${LONGITUDE} + ${MAPZOOM}
+                            ],
+                            [
+                                ${LATITUDE} - ${MAPZOOM},
+                                ${LONGITUDE} - ${MAPZOOM}
+                            ],
+                            [
+                                ${LATITUDE} + ${MAPZOOM},
+                                ${LONGITUDE} - ${MAPZOOM}
+                            ],
+                            [
+                                ${LATITUDE} + ${MAPZOOM},
+                                ${LONGITUDE} + ${MAPZOOM}
+                            ]
+                        ],
+                        "type": "LineString"
+                    }
+                }
+            ]
+        }`;
+
         // Replace variables in template
         const result = templateFile
             .replace(/{{ unsplash-raw-url }}/g, URL)
@@ -111,7 +161,8 @@ unsplash.photos.getRandom({
             .replace(/{{ unsplash-portfolio-url }}/g, PORTFOLIOURL)
             .replace(/{{ socials }}/g, SOCIALSSTRING)
             .replace(/{{ google-maps }}/g, GOOGLEMAPS)
-            .replace(/{{ google-maps-street-view }}/g, GOOGLEMAPSSTREETVIEW);
+            .replace(/{{ google-maps-street-view }}/g, GOOGLEMAPSSTREETVIEW)
+            .replace(/{{ geojson }}/g, GEOJSON);
 
         // Write processed template to README.md
         try {
