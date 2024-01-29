@@ -95,7 +95,7 @@ unsplash.photos.getRandom({
         // Construct a geoJSON string from the location data.
         // This is used to display the location on a map in the README.md
         // If no location data is available, the geoJSON string will be empty.
-        let GEOJSON = '';
+        let GEOJSON = 'Map unavailable';
         if (LATITUDE && LONGITUDE) {
             const MAPZOOM = 0.3;
             GEOJSON = `\`\`\`geojson
