@@ -107,8 +107,8 @@ unsplash.photos.getRandom({
                     "properties": {},
                     "geometry": {
                         "coordinates": [
-                            ${LONGITUDE}
-                            ${LATITUDE},
+                            ${LONGITUDE},
+                            ${LATITUDE}
                         ],
                         "type": "Point"
                     },
